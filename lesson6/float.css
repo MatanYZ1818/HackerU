@@ -1,0 +1,10 @@
+body{
+    background-color: brown;
+}
+img{
+    width: 100px;
+    float: right;
+    margin: 0 0 0 10px;
+    border: 12px solid white;
+    box-shadow: 0 0 2px;
+}

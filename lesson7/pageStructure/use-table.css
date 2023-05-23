@@ -1,0 +1,28 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: forestgreen;
+}
+
+td{
+    border: 1px solid;
+    height: 150px;
+}
+
+tr:nth-child(2) td{
+    height: 400px;
+    width: 25%;
+}
+
+tr:nth-child(2) td:nth-child(2){
+    width: 50%;
+}
+
+/*במצב של מסך צר לא נציג את הטבלה, אלא חלופה אחרת*/
+
+@media (max-width:750px){
+    table{
+        display:none
+    }
+}

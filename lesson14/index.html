@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>For</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <h1>For</h1>
+
+        <div class="frame">
+            <div class="task">
+                <p>יש לקלוט מספרים למערך באמצעות לחיצה על Enter.</p>
+                <input type="number" onkeyup="addToArray(event)">
+            </div>
+
+            <div>
+                <p>יש לקלוט שני מספרים ולהציג את המספרים שביניהם</p>
+                <input type="number" id="num4">
+                <input type="number" id="num5">
+                <button onclick="showNumBetween()">הצג יא מלך</button>
+                <p id="output2"></p>
+            </div>
+
+            <div>
+                <p>יש לקלוט משפט ולהציג את העצרת שלו</p>
+                <input type="number" id="num6">
+                <button onclick="factorial()">חשב יא אלוף</button>
+                <p id="output3"></p>
+            </div>
+
+        </div>
+    </body>
+</html>

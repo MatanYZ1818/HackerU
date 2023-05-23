@@ -1,0 +1,39 @@
+nav{
+    top: 0;
+    right: 0;
+    margin: auto;
+}
+
+ul{
+    list-style-type: none;
+}
+
+ul li{
+    background-image: linear-gradient(45deg, #009688, #72c8c0);
+    height: 52px;
+    width: 184px;
+    position: relative;
+}
+
+.side-menu {
+    position: absolute;
+    background-image: linear-gradient(45deg, #009688, #72c8c0);
+    width: 184px;
+    right: 100%;
+    top: 0;
+    display: none;
+}
+
+li:hover .side-menu {
+    display: block;
+}
+.side-menu a {
+    display: block;
+}
+
+nav a {
+    padding: 8px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 18px;
+}

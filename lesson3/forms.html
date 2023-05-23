@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>טפסים</h1>
+
+    <div class="frame">
+        <form action="formData.html">
+            <label></label>
+            
+            <fieldset>
+                <legend>פרטי המשתמש</legend>
+                <div class="field">
+                    <label>שם פרטי</label>
+                    <input type="text" name="firstName">
+                </div>
+                <div class="field">
+                    <label>שם משפחה</label>
+                    <input type="text" name="lastName">
+                </div>
+                <div class="field">
+                    <label>טלפון</label>
+                    <input type="tel" required>
+                </div>
+                <div class="field">
+                    <label>מייל</label>
+                    <input type="email">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>פרטי תשלום</legend>
+
+                <label>אמצעי תשלום</label>
+                <label class="radioLabel">
+                    <input type="radio" name="paymentType" >  אשראי
+                </label>
+                <label class="radioLabel">
+                    <input type="radio" name="paymentType" >  מזומן
+                </label>
+                <label class="radioLabel">
+                    <input type="radio" name="paymentType" >  העברה
+                </label>
+                <label class="radioLabel">
+                    <input type="radio" name="paymentType" >  צ'ק
+                </label>
+                <label class="radioLabel">
+                    <input type="radio" name="paymentType" >  חליפין
+                </label>
+
+                <div class="field">
+                    <label>מספר תשלומים</label>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    
+                    <label>הערות</label>
+                    <textarea></textarea>
+                </div>
+            </fieldset>
+            <button type="submit">שלח</button>
+        </form>
+    </div>
+</body>
+</html>

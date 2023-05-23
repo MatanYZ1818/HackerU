@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>
+            User input
+        </title>
+        <script>
+            var total=0
+            function plusPlus(){
+                uInput=prompt("please enter a number")
+                total+=Number(uInput)
+            }
+            function printTotal(){
+                console.log(total)
+            }
+            /*
+            //ex6
+            var orangeCost=prompt("how much do oranges cost?")
+            var appleCost=prompt("how much do apples cost?")
+            var bananaCost=prompt("how much do bananas cost?")
+            var totalCost=Number(orangeCost)+Number(appleCost)+Number(bananaCost)+20
+            console.log("cost including delivery is "+totalCost)
+            //ex7
+            var orangeCost=prompt("how much do oranges cost?")
+            var appleCost=prompt("how much do apples cost?")
+            var bananaCost=prompt("how much do bananas cost?")
+            var totalCost=Number(orangeCost)+Number(appleCost)+Number(bananaCost)
+            console.log("your total is "+totalCost)
+            var saleSize=prompt("how much is the sale?")
+            totalCost-=saleSize
+            console.log("your total after sale is "+totalCost)
+            //ex 8
+            var firstNum=prompt("pleae enter the first number")
+            var secondNum=prompt("pleae enter the second number")
+            console.log(Number(firstNum)>Number(secondNum))
+            //ex 9
+            var firstNum=prompt("pleae enter the first number")
+            var secondNum=prompt("pleae enter the second number")
+            var thirdNum=prompt("pleae enter the third number")
+            console.log(Number(firstNum)>Number(secondNum)||Number(firstNum)>Number(thirdNum))
+            //ex 10
+            var firstNum=prompt("pleae enter the first number")
+            var secondNum=prompt("pleae enter the second number")
+            var thirdNum=prompt("pleae enter the third number")
+            console.log(Number(firstNum)>Number(secondNum)&&Number(firstNum)>Number(thirdNum))
+            */
+        </script>
+    </head>
+
+    <body style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        <h1> JS User input</h1>
+        <button onclick="plusPlus()" style="border-radius: 10px; background-color: brown; width: 100px; height: 20px; color: aliceblue;">action Button</button>
+        <button onclick="printTotal()" style="border-radius: 10px; color:darkmagenta; width: 100px; height: 20px;">result Button</button>
+    </body>
+</html>

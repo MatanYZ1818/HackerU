@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    direction: rtl;
+    font-family: 'Varela Round', sans-serif;
+    background-color:dodgerblue;
+}
+
+h1{
+    text-align: center;
+    color: whitesmoke;
+}
+
+.wow{
+    border: 1px solid;
+    display: inline-block;
+    padding: 14px;
+}
+
+.frame{
+    width: 80%;
+    max-width: 900px;
+    background-color: white;
+    margin: auto;
+    padding: 8px 16px;
+    border-radius: 6px;
+    direction: rtl;
+}
+
+img{
+    width: 49%;
+}
+.navbar a{
+    padding: 8px;
+    text-align: right;
+    margin-bottom: 8px;
+}
+
+.navbar a{
+    padding: 8px;
+    display: inline-block;
+    text-decoration: none;
+    color:white;
+}
+
+.navbar a:visited{
+    color: red;
+}
+
+.navbar a:hover {
+    background-color: aquamarine;
+}
+
+img:hover{
+    scale: 1.2;
+    transition:5s;
+    transform: rotate(-1080deg);
+}
+
+ul{
+    list-style:none
+}
+
+ul li{
+    padding: 5px;
+    border-bottom: 2px dotted blue;
+    margin-right: -20px;
+}
+
+ol{
+    stroke: black;
+    stroke-width: 8px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+td,th{
+    border: 1px double rgb(11, 58, 34);
+    height: 30px;
+}
+td:hover{
+    transition: 500ms;
+    background-color: brown;
+    scale: 1.1;
+}

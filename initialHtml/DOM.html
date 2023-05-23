@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>DOM</title>
+        <script>
+            function change(){
+                t2.innerHTML="hi"
+            }
+            function greet(){
+                console.log(password.value)
+                if(password.value=="hacker123" && username.value=="hackeru"){
+                    welcome.innerHTML="welcome "+username.value
+                    newLine.style.visibility="visible"
+                    driver.style.visibility="visible"
+                    age.style.visibility="visible"
+                    driveButton.style.visibility="visible"
+                } else {
+                    alert("username or password are wrong")
+                }
+            }
+            function canDrive(){
+                if (Number(age.value)<16){
+                    driver.innerHTML="you cannot drive"
+                }
+                else{
+                    driver.innerHTML="you can drive"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h2 id="t2">Random title</h2>
+        <h2 id="welcome"></h2>
+        <h2 id="driver" style="visibility: hidden;"></h2>
+        <input type="button" onclick="change()" value="change h2" />
+        <br>
+        <input type="text" id="username" onclick="value=''" value="username"/>
+        <br>
+        <input type="text" id="password" onclick="value=''" value="password"/>
+        <input type="button" onclick="greet()" value="entry please">
+        <hr id="newLine"style="visibility: hidden;">
+        <input type="number" id="age" style="visibility: hidden; width: 50px;">
+        <input type="button" id="driveButton" onclick="canDrive()" value="can i drive?" style="visibility: hidden;">
+    </body>
+</html>

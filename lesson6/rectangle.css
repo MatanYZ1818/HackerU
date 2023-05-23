@@ -1,0 +1,108 @@
+body{
+    direction: rtl;
+}
+
+.rectangle{
+    background-color: chartreuse;
+    width: 31%;
+    height: 200px;
+    display: inline-block;
+    margin: 8px;
+    position: relative;
+}
+
+.rectangle div{
+    width: 31%;
+    height: 31%;
+    background-color:darkcyan;
+    position: absolute;
+    content: "Absolute";
+}
+
+.rectangle:first-child div{
+    top: 0;
+    right: 0;
+}
+
+.rectangle:nth-child(2) div{
+    margin: auto;
+    right: 0;
+    left: 0;
+}
+
+.rectangle:nth-child(3) div{
+    top: 0;
+    left: 0;
+}
+.rectangle:nth-child(4) div{
+    top: 0;
+    bottom: 0;
+    right: 0
+}
+.rectangle:nth-child(5) div{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.rectangle:nth-child(6) div{
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+.rectangle:nth-child(7) div{
+    bottom: 0;
+    right: 0;
+}
+.rectangle:nth-child(8) div{
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+.rectangle:last-child div{
+    bottom: 0;
+    left: 0;
+}
+
+.example2{
+    width: 400px;
+    height: 200px;
+    background-color: cyan;
+    position: relative;
+    right: 50px;
+    top: 80px;
+}
+.example1 {
+    background-color: darkslateblue;
+    color: white;
+    height: 200px;
+    width: 200px;
+    position: fixed;
+    top: 200px;
+    right: 0;
+}
+
+.cards{
+    width: 100%;
+    background-color: burlywood;
+}
+
+.oneCard{
+    background-color: aliceblue;
+    width: 19%;
+    margin: 2px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px 3px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.oneCard:nth-child(2){
+    background-color: grey;
+    z-index: 2;
+    position: relative;
+    right: 20px;
+    top:20px
+}

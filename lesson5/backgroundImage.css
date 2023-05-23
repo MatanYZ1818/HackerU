@@ -1,0 +1,44 @@
+body{
+    background-color: darkorchid;
+}
+
+h2 {
+    background-color: rgb(195, 195, 195);
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px dashed gray;
+    border-right: 0;
+    border-left: 0;
+    text-align: center;
+}
+
+.image{
+    width: 900px;
+    height: 400px;
+    border: 1px solid silver;
+}
+
+.image1{
+    background-image: url(Image20230418105225.png);
+    background-size: 50px;
+}
+
+.image2{
+    background-image: url(fade.jpg);
+    background-size: cover;
+}
+
+.image3{
+    background-image: url(web.png), url(fade.jpg);
+    background-size: 200px, cover;
+    background-position: center, top;
+    background-repeat: no-repeat;
+}
+
+.image4{
+    background-image: url(web.png), url(Image20230418105225.png);
+    background-size: 200px, 50px;
+    background-position: center, top;
+    background-repeat: no-repeat,repeat;
+}
+

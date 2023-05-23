@@ -1,0 +1,46 @@
+body{
+    background-color: #c1d322;
+}
+
+h2 {
+    background-color: rgb(195, 195, 195);
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px dashed gray;
+    border-right: 0;
+    border-left: 0;
+    text-align: center;
+}
+
+.myDiv{
+    width: 300px;
+    height: 180px;
+    transition: 1s;
+}
+
+.div1{
+    background-color: hsl(30,100%,30%);
+}
+
+.div1:hover{
+    transform: rotate(90deg);
+}
+
+.div2{
+    background-color: hsl(140, 100%, 30%);
+}
+
+.div2:hover{
+    transform: rotate3d(1,1,1,45deg);
+}
+
+.div3{
+    background-color: hsl(197, 100%, 30%);
+}
+.div3:hover{
+    transform: rotate(360deg)
+}
+
+.div4{
+    background-color: hsl(12, 100%, 30%);
+}

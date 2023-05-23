@@ -1,0 +1,37 @@
+body{
+    background-color: coral;
+    direction: rtl;
+}
+
+form{
+    background-color: white;
+    width: 80%;
+    padding: 24px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #f7f715;
+    margin: auto;
+    max-width: 600px;
+}
+
+div{
+    margin-bottom: 8px;
+    border: 3px dotted greenyellow;
+}
+
+.classShare{
+    background-color: blueviolet;
+}
+
+#passId{
+    transform:rotate(-10deg)
+}
+
+label{
+    display: block;
+}
+
+input{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid saddlebrown;
+}

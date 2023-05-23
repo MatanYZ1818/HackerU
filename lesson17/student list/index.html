@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>תרגול JS</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <h1>רשימה שמית</h1>
+        <div class="frame">
+            <input type="search" placeholder="חיפוש" oninput="search()">
+            <ul></ul>
+            <button onclick="random()">ערבוב</button>
+            <button onclick="sortASC()">מיון א'-ת'</button>
+            <button onclick="sortDESC()">מיון ת'-א'</button>
+            <button onclick="raffle()">הגרלה</button>
+            <br>
+            <button onclick="split()">פיצוליהו ארנבים</button>
+            <p id="firstArr"></p>
+            <p id="secondArr"></p>
+            <p id="thirdArr"></p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>
+            Conditions
+        </title>
+        <script>
+            function passwordLogin(){
+                var pass=prompt("please enter your password")
+                if(pass=="hacker1234"){
+                    alert("welcome")
+                } else {
+                    alert("worng password")
+                }
+            }
+            function passAndNameLogin(){
+                var name=prompt("please enter your username")
+                var pass=prompt("please enter your password")
+                if(pass=="hacker1234"&&name=="hackeru"){
+                    alert("welcome")
+                } else {
+                    alert("worng username or password")
+                }
+            }
+            function canDrive(){
+                var age=prompt("please enter your age")
+                console.log(Number(age))
+                if(Number(age)<=16){
+                    alert("you can't drive yet")
+                } else if(Number(age)>16 && Number(age)<=18){
+                    alert("you can start to learn")
+                } else if(Number(age)>18 && Number(age)<70){
+                    alert("you can drive")
+                } else{
+                    alert("you can drive with a doctor's note")
+                }
+            }
+            function pantSize(){
+                var userPants=Number(prompt("please enter your pants size in numbers"))
+                console.log(userPants)
+                if(userPants>23 && userPants<31){
+                    alert("your size if S")
+                } else if(userPants>30 && userPants<37){
+                    alert("your size if M")
+                } else if(userPants>36){
+                    alert("your size if L")
+                } else{
+                    alert("we don't have your size")
+                }
+            }
+            function simpleCalc(){
+                var firstNum=Number(prompt("enter the first number"))
+                var secondNum=Number(prompt("enter the second number"))
+                var operator=prompt("please enter a + or *")
+                if(operator=="+"){
+                    alert(firstNum+secondNum)
+                } else if(operator=="*"){
+                    alert(firstNum*secondNum)
+                } else {
+                    alert("bad input")
+                }
+            }
+            function advLogin(){
+                var name=prompt("please enter your username")
+                var pass=prompt("please enter your password")
+                if(name.length==0){
+                    if(pass.length==0){
+                        alert("please enter username and password")
+                    }
+                    else {
+                        alert("please enter a username")
+                    }
+                }
+                else {
+                    if(pass.length==0){
+                        alert("please enter a password")
+                    }
+                    else{
+                        if(pass=="hacker1234"&&name=="hackeru"){
+                        alert("welcome")
+                        } else {
+                            alert("worng username or password")
+                        }
+                    }
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <hr>
+        <button onclick="passwordLogin()">Log in with password</button>
+        <button onclick="passAndNameLogin()">Log in with password and username</button>
+        <button onclick="canDrive()">can you drive?</button>
+        <button onclick="pantSize()">check pants size</button>
+        <button onclick="simpleCalc()">simple calculator</button>
+        <button onclick="advLogin()">better Login</button>
+    </body>
+</html>

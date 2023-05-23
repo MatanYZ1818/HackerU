@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <script>
+            function numberCheck(){
+                var numInput= prompt("please enter a positive number")
+                if (numInput>1000){
+                    alert("large number")
+                } else if(numInput>101){
+                    alert("medium number")
+                } else {
+                    alert("small number")
+                }
+            }
+
+            function welcome(){
+                var fName=prompt("please enter your first name")
+                var lName=prompt("please enter your last name")
+                alert ("hello "+fName+" "+lName+" welcome back to the system")
+            }
+
+            function passwordLogin(){
+                var pass=prompt("please enter your password")
+                if(pass=="hackeru123456"){
+                    alert("Identification clear")
+                } else{
+                    alert("wrong password, please identify")
+                }
+            }
+            function ageJoin(){
+                var userAge=prompt("how old are you?")
+                if(userAge<16){
+                    alert("you may not enter")
+                } else if(userAge<19){
+                    alert("you may join with a parent's permission")
+                } else{
+                    alert("you may join")
+                }
+            }
+            function numbersCalc(){
+                var fNum=Number(prompt("please enter the first number"))
+                var sNum=Number(prompt("please enter the second number"))
+                var tNum=Number(prompt("please enter the third number"))
+                var result
+                var oper=prompt("please would you like to add(+) or substract(-) them?")
+                if(oper=="+"){
+                    result=fNum+sNum+tNum
+                } else{
+                    result=fNum-sNum-tNum
+                }
+                alert("the result is "+result)
+            }
+        </script>
+    </head>
+    <body style="background-color: #7fffd4; direction: rtl;">
+        <div style="margin: 30px">
+            <div style="border-radius: 5px; border:thick double #32a1ce; background-color: #7FEAFF; ; width: max-content;">
+                <p style="margin: 10px;  height: 150px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                    • מתן זכריה
+                    <br>
+                    • זמין לשאלות בטלפון 054-4657766
+                    <br>
+                    • הדבר שהיה הכי מורכב היה לקבל את המספרים ולחבר אותם בתרגיל החמישי
+                    <br>
+                    • הכי נהניתי בשלב הפרוייקט לדעת לשלב HTML יחד עם Javascript
+                    <br>
+                    • אני חושב שהתחום הזה מתאים לי מכיוון שיש לי רקע בתכנות, ראש טכני ודרח חשיבה שמתאימה לתחום
+                    <br>
+                    • אני מסכם את שלב המיון בתור חוויה חדשה ומעניינת ללמוד חומר חדש בצורה דיי נוחה של למידה מרחוק
+                </p>
+            </div>
+            <br>
+            <input type="button" onclick="numberCheck()" value="exercise 1" style="border-radius: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; text-align: center;">
+            <input type="button" onclick="welcome()" value="exercise 2" style="border-radius: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; text-align: center;">
+            <input type="button" onclick="passwordLogin()" value="exercise 3" style="border-radius: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; text-align: center;">
+            <input type="button" onclick="ageJoin()" value="exercise 4" style="border-radius: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; text-align: center;">
+            <input type="button" onclick="numbersCalc()" value="exercise 5" style="border-radius: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; text-align: center;">
+        </div>
+    </body>
+</html>

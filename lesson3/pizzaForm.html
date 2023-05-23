@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+    <link rel="stylesheet" href="pizzaStyle.css">
+</head>
+<body>
+    <h1>פיצה אחלה</h1>
+
+    <div class="frame">
+        <form>
+            <label></label>
+            <fieldset>
+                <legend>בחר סוג פיצה</legend>
+                <label class="pizzaTypeClass">
+                    <input type="radio" name="pizzaType"> פיצה עבה
+                </label>
+                <label class="pizzaTypeClass">
+                    <input type="radio" name="pizzaType"> פיצה דקה
+                </label>
+                <label class="pizzaTypeClass">
+                    <input type="radio" name="pizzaType"> פיצה עם שום
+                </label>
+                <label class="pizzaTypeClass">
+                    <input type="radio" name="pizzaType"> פיצה טבעונית
+                </label>
+                <label class="pizzaTypeClass">
+                    <input type="radio" name="pizzaType"> פיצה צליאקית
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>תוספות</legend>
+                <label>
+                    <input type="checkbox" name="topping"> תירס
+                </label>
+                <label>
+                    <input type="checkbox" name="topping"> בצל
+                </label>
+                <label>
+                    <input type="checkbox" name="topping"> טונה
+                </label>
+                <label>
+                    <input type="checkbox" name="topping"> עגבניות
+                </label>
+                <label>
+                    <input type="checkbox" name="topping"> פטריות
+                </label>
+                <label>
+                    <input type="checkbox" name="topping"> זיתים
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>פרטי תשלום</legend>
+
+                <label>אמצעי תשלום</label>
+                <label class="radioLabel">
+                    <input type="radio" name="paymentType" >  אשראי
+                </label>
+                <label class="radioLabel">
+                    <input type="radio" name="paymentType" >  מזומן
+                </label>
+                <label class="radioLabel">
+                    <input type="radio" name="paymentType" >  העברה
+                </label>
+                <label class="radioLabel">
+                    <input type="radio" name="paymentType" >  צ'ק
+                </label>
+                <label class="radioLabel">
+                    <input type="radio" name="paymentType" >  כליה
+                </label>
+
+                <div class="field">
+                    <label>מספר תשלומים</label>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </fieldset>
+            
+</body>
+</html>

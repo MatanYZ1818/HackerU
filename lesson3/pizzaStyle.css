@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+body{
+    direction: rtl;
+    font-family: 'Varela Round', sans-serif;
+    background-image: url(pizza.jpg);
+    background-size:cover
+}
+
+h1{
+    text-align: center;
+    color: whitesmoke;
+}
+
+.frame{
+    width: 80%;
+    max-width: 900px;
+    background-color: /*rgb(17, 92, 14);*/ rgba(255, 99, 71, 0.644);
+    margin: auto;
+    padding: 8px 16px;
+    border-radius: 6px;
+    direction: rtl;
+}
+.pizzaTypeClass{
+    display: block;
+    border: 1px black solid;
+    transition: 0.23s;
+    background-color: rgba(255, 71, 71);
+    padding: 10px
+}
+
+.pizzaTypeClass:focus{
+    background-color: brown;
+}
+
+.pizzaTypeClass:hover{
+    scale: 1.2;
+    background-color: rgba(255, 71, 71, 0.548);
+    border-radius: 7px;
+}
+
+.radioLabel{
+    display: inline-block;
+    border: none;
+}
+fieldset{
+    border-radius: 15px;
+    border: 5px double /*tomato;*/  rgb(17, 92, 14);;
+}
