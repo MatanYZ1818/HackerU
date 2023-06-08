@@ -3,6 +3,6 @@ class Gallery{
         const elem=document.getElementById(elementID)
 
         const img =document.createElement("img")
-        img.src
+        img.src=""
     }
 }
