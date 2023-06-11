@@ -26,10 +26,18 @@ class TaskManager {
         {
             id: 8,
             title: 'משימה שנייה',
-            addedTime: '2023-06-11 11:11:22',
+            addedTime: '2023-06-11 11:51:22',
             description: '',
             isCompleted: false,
             priority: PriorityTypes.high,
+        },
+        {
+            id: 15,
+            title: 'משימה שלישית',
+            addedTime: '2023-06-11 15:31:22',
+            description: 'אתה הוא הנבחרץ אתה הלשיח של העם המיודע ועיליך לגלות אותו. רק אתה יחכול לראת את ההודעה הזו. לא את זו: כלבלבים',
+            isCompleted: false,
+            priority: PriorityTypes.medium,
         },
     ];
 
@@ -133,7 +141,7 @@ class TaskManager {
             const div = document.createElement("div");
 
             if(t.isCompleted){
-                div.classList.add("complete")
+                div.classList.add("completed")
             }
 
             switch (t.priority) {
@@ -149,13 +157,13 @@ class TaskManager {
 
                 <footer>
                     <button class="remove">מחק</button>
-                    ${t.isCompleted ? '<button class="uncompleted">לא בוצע</button>' : '<button class="completed">בוצע</button>'}
+                    ${t.isCompleted ? '<button class="uncomplete">לא בוצע</button>' : '<button class="complete">בוצע</button>'}
                 </footer>
             `;
 
             div.querySelector('.remove')?.addEventListener("click", () => this.removeTask(t.id));
-            div.querySelector('.completed')?.addEventListener("click", () => this.completeTask(t.id));
-            div.querySelector('.uncompleted')?.addEventListener("click", () => this.unCompleteTask(t.id));
+            div.querySelector('.complete')?.addEventListener("click", () => this.completeTask(t.id));
+            div.querySelector('.uncomplete')?.addEventListener("click", () => this.unCompleteTask(t.id));
 
             elem?.appendChild(div);
         });
