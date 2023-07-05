@@ -56,15 +56,51 @@ function getProducts() {
 
             tr.innerHTML = `
                 <td>${i + 1}</td>
-                <td>${p.name}</td>
-                <td>${p.price}</td>
-                <td>${p.discount}</td>
-                <td></td>
+                <td contenteditable="true" oninput="contentChange(this)" class="name">${p.name}</td>
+                <td contenteditable="true" oninput="contentChange(this)" class="price">${p.price}</td>
+                <td contenteditable="true" oninput="contentChange(this)" class="discount">${p.discount}</td>
+                <td>
+                    <button class="save" onclick="saveProduct(${p.id}, this)">💾</button>
+                    <button class="remove" onclick="removeProduct(${p.id}, this)">❌</button>
+                </td>
             `;
 
             tbody.appendChild(tr);
         });
     });
+}
+
+function contentChange(tdElem) {
+    tdElem.closest('tr').querySelector('.save').style.visibility = 'visible';
+}
+
+function saveProduct(id, btnElem) {
+    const tr = btnElem.closest('tr');
+
+    const obj = {
+        name: tr.querySelector(".name").innerText,
+        price: tr.querySelector(".price").innerText,
+        discount: tr.querySelector(".discount").innerText,
+    };
+
+    fetch(`https://api.shipap.co.il/products/${id}`, {
+        method:"PUT",
+        credentials:"include",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(obj),
+    }).then(()=>{
+        tr.querySelector('.save').style.visibility = 'hidden';
+    })
+
+    // לקבל את כל הנתונים של השורה ב- innerText
+    // לשלוח את הנתונים לשרת
+    // להסתיר את לחצן השמירה
+
+    // בונוס
+    // במחיקה, לעדכן את כל המספור
+    // כל פנייה לשרת זה יציג ספינר עד לסיום ההתקשרות
 }
 
 function addProduct() {
@@ -94,6 +130,19 @@ function addProduct() {
     .then(data => {
         getProducts();
     });
+}
+
+function removeProduct(id, btnElem) {
+    if (!confirm('האם אתה בטוח כי ברצונך למחוק את הפריט המדובר?')) {
+        return;
+    }
+
+    fetch(`https://api.shipap.co.il/products/${id}`, {
+        method: 'DELETE',
+        credentials: 'include',
+    })
+    .then(() => btnElem.closest('tr').remove())
+    .then(getProducts());
 }
 
 // פונקציה האחראית לשים את שם המשתמש בהודעה או לאפשר התחברות
