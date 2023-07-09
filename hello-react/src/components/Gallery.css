@@ -1,0 +1,32 @@
+.gallery img{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.imagePaging{
+    position: relative;
+}
+
+button {
+    background-color: #4a89c3;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    height: 50px;
+
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+}
+
+button:last-child{
+    left: 0px;
+}
+
+button:hover {
+    background-color:  #7ca4c9;
+    scale: 1.2;
+    transition: 500ms;
+}
