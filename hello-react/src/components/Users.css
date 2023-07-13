@@ -1,0 +1,52 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+tr {
+    background-color: white;
+}
+
+thead tr {
+    background-color: #3dbf23;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #d9d9d9;
+}
+
+th,
+td {
+    padding: 6px;
+    text-align: center;
+}
+
+.remove,
+.save {
+    margin: 0;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.remove:hover,
+.save:hover {
+    scale: 1.5;
+}
+
+.remove {
+    background: none;
+}
+
+.save {
+    background: none;
+    visibility: hidden;
+}
+
+.noData {
+    font-size: 2em;
+    color: gray;
+    text-align: center;
+}
