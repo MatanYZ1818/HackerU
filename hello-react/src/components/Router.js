@@ -4,6 +4,7 @@ import Counter from './Counter';
 import Gallery from './Gallery';
 import Settings from './Settings';
 import Users from './Users';
+import UsersCards from './UsersCards';
 
 function Router() {
     return (
@@ -13,6 +14,7 @@ function Router() {
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/settings' element={<Settings />} />
             <Route path='/users' element={<Users />} />
+            <Route path='/usersCards' element={<UsersCards />} />
         </Routes>
     )
 }
