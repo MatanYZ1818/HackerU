@@ -10,6 +10,7 @@ function Navbar() {
                 <li><a href="/settings">הגדרות</a></li>
                 <li><a href="/users">משתמשים</a></li>
                 <li><a href="/usersCards">משתמשים 2</a></li>
+                <li><a href="/clients">קליינטים</a></li>
                 <li><a href="/contact">צור קשר</a></li>
             </ul>
         </nav>
