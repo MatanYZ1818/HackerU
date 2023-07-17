@@ -1,10 +1,10 @@
-.cardFrame {
+.MessageFrame {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
 
-.cardFrame .card {
+.MessageFrame .Message {
     background: white;
     padding: 8px;
     border-radius: 5px;
@@ -12,10 +12,6 @@
     margin: 0;
 }
 
-.cardFrame .card p {
+.MessageFrame .Message p {
     margin: 0;
-}
-
-.active{
-    background-color: rgb(166, 255, 0);
 }

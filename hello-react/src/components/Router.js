@@ -6,6 +6,8 @@ import Settings from './Settings';
 import Users from './Users';
 import UsersCards from './UsersCards';
 import Clients from './Clients';
+import Contact from './Contact';
+import ViewMessages from './ViewMessages';
 
 function Router() {
     return (
@@ -17,6 +19,8 @@ function Router() {
             <Route path='/users' element={<Users />} />
             <Route path='/usersCards' element={<UsersCards />} />
             <Route path='/clients' element={<Clients />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/Messages' element={<ViewMessages />} />
         </Routes>
     )
 }

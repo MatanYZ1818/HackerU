@@ -1,4 +1,4 @@
-[
+export const clients=[
     {
     id: 4,
     firstName: "Merl",
