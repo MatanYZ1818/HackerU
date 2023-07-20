@@ -1,20 +1,20 @@
-.Contact {
+.Login {
     width: 400px;
     margin: 16px auto;
     padding-bottom: 30px;
 }
 
-.Contact h2 {
+.Login h2 {
     font-size: 1.5em;
     text-align: center;
 }
 
-.Contact label {
+.Login label {
     display: block;
     margin-bottom: 8px;
 }
 
-.Contact input, .Contact textarea {
+.Login input, .Login textarea {
     display: block;
     border: 1px solid black;
     padding: 8px 12px;
@@ -24,10 +24,22 @@
     box-sizing: border-box;
 }
 
-.Contact button {
+.Login button {
     margin: 24px 0 8px 0;
     background-color: rgb(0, 157, 0);
     display: block;
     width: 100%;
     font-size: 1.2em;
+}
+
+div.fieldError {
+    background-color: #ffdcdc;
+    padding: 6px;
+    border-radius: 4px;
+    margin: -8px 0px 6px 0;
+}
+
+input.fieldError, textarea.fieldError {
+    border-color: red;
+    outline-color: red;
 }
