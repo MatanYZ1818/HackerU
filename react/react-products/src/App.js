@@ -1,11 +1,13 @@
 import './App.css';
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react';
+import Products from './components/Products';
+import Login from './components/Login';
 
 function App() {
-    const [user,setUser]=useState()
-        const [isLogged,setIsLogged]=useState()
+    const [user, setUser] = useState();
+    const [isLogged, setIsLogged] = useState();
 
-        useEffect(()=>{
+    useEffect(() => {
         fetch("https://api.shipap.co.il/login", {
             credentials: 'include',
         })
@@ -13,14 +15,13 @@ function App() {
         .then(data => {
             if (data.status == 'success') {
                 setUser(data.user);
-                setIsLogged(true)
+                setIsLogged(true);
             } else {
                 setUser();
-                setIsLogged(false)
+                setIsLogged(false);
             }
         });
-    },[])
-  
+    }, []);
 
     return (
         <div className="App">
@@ -28,7 +29,18 @@ function App() {
 
             <div className="frame">
                 {
-                    isLogged === undefined ? <p>טוען....</p> : isLogged ? <p>מחובר</p> : <p>להקיא</p>
+                    isLogged ?
+                    <p className='user'>{user.fullName} מחובר!</p> :
+                    ''
+                }
+                {
+                    (isLogged === undefined) ?
+                    (<p className='loader'>טוען...</p>) :
+                    (
+                        isLogged ?
+                        <Products /> :
+                        <Login success={user => { setUser(user); setIsLogged(true) }} />
+                    )
                 }
             </div>
         </div>

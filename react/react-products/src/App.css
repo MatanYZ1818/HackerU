@@ -1,38 +1,124 @@
-.App {
+h1 {
+  color: #61dafb;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.frame {
+  width: 80%;
+  max-width: 900px;
+  min-height: 300px;
+  background-color: #ffffffc9;
+  margin: auto;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.smallFrame {
+  width: 250px;
+  margin: 16px auto;
+  background-color: #b4efff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 3px #989898;
+}
+
+h2 {
+  font-size: 1.5em;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+label {
+  display: block;
+  margin-bottom: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input, textarea {
+  display: block;
+  border: 1px solid black;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-top: 3px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button {
+  margin: 24px 0 8px 0;
+  background-color: #009d00;
+  display: block;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+div.fieldError {
+  background-color: #ffdcdc;
+  padding: 6px;
+  border-radius: 4px;
+  margin: -8px 0px 6px 0;
+}
+
+input.fieldError, textarea.fieldError {
+  border-color: red;
+  outline-color: red;
+}
+
+.loader {
+  font-size: 4em;
+  margin: 0;
+}
+
+.user {
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 6px #979797;
+}
+
+.grid div {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #282c34;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.grid div:nth-last-child(-n +5) {
+  border-bottom: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.grid div:nth-child(10n+1),
+.grid div:nth-child(10n+2),
+.grid div:nth-child(10n+3),
+.grid div:nth-child(10n+4),
+.grid div:nth-child(10n+5) {
+  background-color: #dcdcdc;
+}
+
+.grid div:nth-child(-n +5) {
+  background-color: #61dafb;
+  font-weight: bold;
+}
+
+.remove,
+.save {
+  margin: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.remove:hover,
+.save:hover {
+  scale: 1.5;
+}
+
+.remove {
+  background: none;
 }
