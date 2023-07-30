@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AddProduct from './AddProduct';
+import EditProduct from './EditProduct';
+import { UserContext } from '../App';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
+    const [editedItem, setEditedItem] = useState();
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
         fetch("https://api.shipap.co.il/products", {
@@ -12,7 +16,7 @@ export default function Products() {
         .then(data => {
             setProducts(data);
         });
-    }, [])
+    }, []);
 
     const remove = (id) => {
         if (!window.confirm('האם אתה בטוח כי ברצונך למחוק את הפריט המדובר?')) {
@@ -28,10 +32,23 @@ export default function Products() {
         });
     }
 
+    const update = (product) => {
+        if (product) {
+            const arr = [...products];
+            const i = arr.findIndex(p => p.id === product.id);
+            arr.splice(i, 1, product);
+            setProducts(arr);
+        }
+
+        setEditedItem();
+    }
+
     return (
         <div className="Products">
             <AddProduct addedProduct={item => setProducts([...products, item])} />
-            <h2>מוצרים</h2>
+            <EditProduct item={editedItem} itemChange={update} />
+
+            <h2>המוצרים של {user.fullName}</h2>
             
             {
                 products.length ?
@@ -46,11 +63,14 @@ export default function Products() {
                         products.map((p, i) => {
                             return (
                                 <React.Fragment key={p.id}>
-                                    <div>{i + 1}</div>
-                                    <div>{p.name}</div>
-                                    <div>{p.price}</div>
-                                    <div>{p.discount}</div>
-                                    <div><button className="remove" onClick={() => remove(p.id)}>❌</button></div>
+                                    <div onDoubleClick={() => setEditedItem(p)}>{i + 1}</div>
+                                    <div onDoubleClick={() => setEditedItem(p)}>{p.name}</div>
+                                    <div onDoubleClick={() => setEditedItem(p)}>{p.price}</div>
+                                    <div onDoubleClick={() => setEditedItem(p)}>{p.discount}</div>
+                                    <div>
+                                        <button className="remove" onClick={() => setEditedItem(p)}>✏️</button>
+                                        <button className="remove" onClick={() => remove(p.id)}>❌</button>
+                                    </div>
                                 </React.Fragment>
                             )
                         })
