@@ -1,0 +1,58 @@
+.Articles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.Articles .card {
+    background-color: white;
+    box-shadow: 0 0 3px black;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Articles a {
+    color: black;
+    text-decoration: none;
+    display: inherit;
+}
+
+.Articles .card:hover {
+    box-shadow: 0 0 15px;
+}
+
+.Articles .card:active {
+    scale: 1.05;
+}
+
+.Articles header {
+    font-weight: bold;
+}
+
+.Articles header, .Articles footer {
+    padding: 4px 8px;
+}
+
+.Articles img {
+    width: 100%;
+}
+
+.article {
+    max-width: 700px;
+    margin: auto;
+    background-color: white;
+    padding: 1px 0px;
+}
+
+.article h3 {
+    margin: 0;
+    padding: 6px;
+}
+
+.article p {
+    margin: 0;
+    padding: 14px 6px;
+}

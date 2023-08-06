@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './User.css';
 import { useContext, useEffect, useState } from 'react';
-import { JOI_HEBREW } from '../joi-hebrew';
+import { JOI_HEBREW } from './joi-hebrew';
 import Joi from 'joi';
 import { UserContext } from '../App';
 
