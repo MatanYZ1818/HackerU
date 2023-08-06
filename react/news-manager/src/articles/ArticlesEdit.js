@@ -1,36 +1,65 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Articles.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AiOutlineRight } from 'react-icons/ai';
+import moment from 'moment';
+import { UserContext } from '../App';
 
 export default function ArticlesEdit() {
     const { id } = useParams();
     const [item, setItem] = useState();
+    const navigate = useNavigate();
+    const { setLoading, snackbar } = useContext(UserContext);
 
     useEffect(() => {
-        if (id == 'new') {
+        if (id === 'new') {
             setItem({
-                publishDate: '',
+                publishDate: moment().format("YYYY-MM-DD"),
                 headline: '',
                 description: '',
                 content: '',
             });
         } else {
+            setLoading(true);
+
             fetch(`https://api.shipap.co.il/articles/${id}`, {
                 credentials: 'include',
             })
             .then(res => res.json())
-            .then(data => setItem(data));
+            .then(data => setItem(data))
+            .finally(() => setLoading(false));
         }
-    }, []);
+    }, [id, setLoading]);
 
-    const handleINput=ev=>{
-        const{name,value}=ev.tartget
+    const handelInput = ev => {
+        const { name, value } = ev.target;
 
         setItem({
             ...item,
-            [name]:value
+            [name]: value,
+        });
+    }
+
+    const updateArticle = ev => {
+        ev.preventDefault();
+        setLoading(true);
+
+        fetch("https://api.shipap.co.il/articles" + (item.id ? `/${id}` : ''), {
+            credentials: 'include',
+            method: item.id ? "PUT" : "POST",
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(item),
         })
+        .then(() => {
+            if (item.id) {
+                snackbar('הכתבה נשמרה בהצלחה');
+            } else {
+                snackbar('הכתבה נוספה בהצלחה');
+            }
+
+            navigate('/');
+        })
+        .finally(() => setLoading(false));
     }
 
     return (
@@ -44,19 +73,28 @@ export default function ArticlesEdit() {
                 <>
                     <h2>{item.id ? 'עריכת' : 'הוספת'} כתבה</h2>
 
-                    <form>
+                    <form onSubmit={updateArticle}>
                         <label>
-                            כותרת
-                            <input type='text' name='headline' value={item.headline} onChange={handleINput}></input>
-                        </label>
+                            כותרת:
+                            <input type="text" name="headline" value={item.headline} onChange={handelInput} />
+                        </label> 
+
                         <label>
-                            תיואר
-                            <textarea name='description' cols="30" rows="5" value={item.description} onChange={handleINput}></textarea>
-                        </label>
+                            תאריך פרסום:
+                            <input type="date" name="publishDate" value={item.publishDate} onChange={handelInput} />
+                        </label> 
+
                         <label>
-                            תוכן
-                            <textarea name='content' cols="30" rows="10" value={item.content} onChange={handleINput}></textarea>
+                            תיאור:
+                            <textarea name="description" cols="30" rows="5" value={item.description} onChange={handelInput}></textarea>
                         </label>
+
+                        <label>
+                            תוכן:
+                            <textarea name="content" cols="30" rows="10" value={item.content} onChange={handelInput}></textarea>
+                        </label>
+
+                        <button>{item.id ? 'שמירה' : 'הוספה'}</button>
                     </form>
                 </>
             }

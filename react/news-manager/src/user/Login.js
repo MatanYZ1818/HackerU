@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './User.css';
 import { useContext, useEffect, useState } from 'react';
-import { JOI_HEBREW } from './joi-hebrew'
+import { JOI_HEBREW } from '../joi-hebrew';
 import Joi from 'joi';
 import { UserContext } from '../App';
 
@@ -17,17 +17,18 @@ export default function Login() {
         userName: Joi.string().min(3).max(10).required(),
         password: Joi.string().required(),
     });
-    const { setUser, isLogged, setIsLogged } = useContext(UserContext);
+    const { setUser, isLogged, setIsLogged, setLoading, snackbar } = useContext(UserContext);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (isLogged) {
             navigate('/');
         }
-    }, [isLogged])
+    }, [isLogged, navigate])
 
     const login = ev => {
         ev.preventDefault();
+        setLoading(true);
         
         fetch("https://api.shipap.co.il/login", {
             credentials: 'include',
@@ -42,9 +43,13 @@ export default function Login() {
             if (data.status === 'success') {
                 setUser(data.user);
                 setIsLogged(true);
+                snackbar(`${data.user.fullName} התחבר בהצלחה!`);
             } else {
                 setLoginError(data.message);
+                snackbar(data.message);
             }
+
+            setLoading(false);
         });
     }
 
