@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { TOKEN } from '../App';
 import { useParams } from 'react-router-dom';
 import ErrorPage from '../components/ErrorPage';
-import Talkback from '../talkbacks/Talkback';
+import Talkback from "../talkbacks/Talkbacks"
 
 export default function ArticlePage() {
     const [article, setArticle] = useState();
@@ -26,7 +26,7 @@ export default function ArticlePage() {
                     <img src={article.imgUrl} width="100%" />
                     <p>{article.content}</p>
 
-                    <Talkback />
+                    <Talkback articleId={article.id}/>
                 </div> : 
                 (error ? <ErrorPage /> : <p className='article'>טוען...</p>)
             }
