@@ -10,7 +10,23 @@ export default function Talkbacks({ articleId }) {
     useEffect(() => {
         fetch(`https://api.shipap.co.il/articles/${articleId}/talkbacks?token=${TOKEN}`)
         .then(res => res.json())
-        .then(data => setData(data));
+        .then(data => {
+            const dictionary={}
+
+            data.forEach(x=>{
+                if(dictionary[x.parent]){
+                    dictionary[x.parent]=[]
+                }
+
+                dictionary[x.parent].push(x)
+            })
+
+            data.forEach(x=>{
+                x.children = dictionary[x.id] || []
+            })
+
+            console.log(dictionary)
+        });
     }, []);
 
     const commentToggle = item => {
