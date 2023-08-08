@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { TOKEN } from '../App';
 import { useParams } from 'react-router-dom';
 import ErrorPage from '../components/ErrorPage';
-import Talkback from './talkbacks/Talkback';
+import Talkback from '../talkbacks/Talkback';
 
 export default function ArticlePage() {
     const [article, setArticle] = useState();

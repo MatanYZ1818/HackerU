@@ -1,6 +1,7 @@
 import './Talkback.css';
 import { useState, useEffect } from 'react';
 import TalkbacksForm from './TalkbacksForm';
+import {moment} from "moment"
 
 export default function Talkback({ articleId }) {
     const [data, setData] = useState([]);
@@ -16,15 +17,15 @@ export default function Talkback({ articleId }) {
                     <p>היה הראשון להגיב!</p>
                     <TalkbacksForm articleId={articleId} />
                 </> :
-                data.map(t => 
+                data.map((t,i) => 
                     <div className='talkbackContainer'>
                         <div className='grid'>
-                            <div>1</div>
-                            <div>אלישיב לרנר <span>(06/08/2023 15:37)</span></div>
+                            <div>{i+1}</div>
+                            <div>{t.name}<span></span></div>
                             <div className='btnFrame'>
                                 <button>הגב</button>
                             </div>
-                            <div className='content'>כתבה מטופשת.. צריך להחליף עורך לאתר...</div>
+                            <div className='content'>{t.comment}</div>
                         </div>
 
                         <TalkbacksForm articleId={articleId} parent={t.id} />
