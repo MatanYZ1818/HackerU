@@ -4,7 +4,7 @@ import TalkbacksForm from './TalkbacksForm';
 import { TOKEN } from '../App';
 import moment from 'moment';
 
-export default function Talkbacks({ articleId }) {
+export default function Talkbacks({ articleId ,children,level}) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -34,9 +34,14 @@ export default function Talkbacks({ articleId }) {
         setData([...data]);
     }
 
+    const addChild = item=>{
+        item.children.push(item)
+        setData([...data])
+    }
+
     return (
         <div className='Talkbacks'>
-            <h3>תגובות</h3>
+            {children ? "":<h3>תגובות</h3>}
 
             {
                 !data.length ?
@@ -44,6 +49,7 @@ export default function Talkbacks({ articleId }) {
                     <TalkbacksForm articleId={articleId} added={item=>setData([...data,item])}/>
                 </> :
                 data.map((t, i) => 
+                <div key={t.id} style={{paddingRight: level*20}}>
                     <div key={t.id} className='talkbackContainer'>
                         <div className='grid'>
                             <div>{i + 1}</div>
@@ -54,8 +60,12 @@ export default function Talkbacks({ articleId }) {
                             <div className='content'>{t.comment}</div>
                         </div>
 
-                        {t.isShowComment && <TalkbacksForm articleId={articleId} parent={t.id} />}
-                    </div>    
+                        {t.isShowComment && <TalkbacksForm articleId={articleId} parent={t.id} added={item=>addChild(t.children,item)} />}
+                    </div>
+
+                    {t.children.length? <Talkbacks articleId={articleId} children={t.children} level={level+1}/> : ""}
+                </div>
+                    
                 )
             }
         </div>
