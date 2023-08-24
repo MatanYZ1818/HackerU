@@ -92,7 +92,7 @@ export default function Login() {
 
     return (
         <>
-            <div className="Login smallFrame">
+            <div className="login smallFrame">
                 <h2>התחברות</h2>
                 
                 <form onSubmit={login}>
