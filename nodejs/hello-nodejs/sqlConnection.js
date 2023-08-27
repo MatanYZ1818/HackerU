@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
     user: 'root',
     password: '',
     // port: 8889, // למחשבי Mac
-    database: 'full-stack-w050323er',
+    database: 'fullstack',
 });
 
 connection.connect(err => {

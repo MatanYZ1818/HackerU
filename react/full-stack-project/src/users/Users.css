@@ -21,6 +21,7 @@ th,
 td {
     padding: 6px;
     text-align: center;
+    white-space: nowrap;
 }
 
 td button {
@@ -64,10 +65,11 @@ tr td:last-child {
 }
 
 button.returnLink {
-    margin: 10px 0 0 0;
+    margin: 10px 0 0 10px;
     width: initial;
     font-size: 1em;
     background: #282c34;
+    display: inline;
 }
 
 button.returnLink svg {
@@ -108,4 +110,15 @@ button.returnLink svg {
 
 .dislike {
     color: #bf2323;
+}
+
+
+.arrows {
+    text-align: left;
+}
+
+.arrows button {
+    display: inline-block;
+    width: initial;
+    margin: 3px;
 }

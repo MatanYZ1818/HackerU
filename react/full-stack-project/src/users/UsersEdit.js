@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react"
-import {useParams} from "react-router-dom"
+import { useEffect, useState } from "react";
+import { AiOutlineRight } from "react-icons/ai";
+import { Link, useNavigate, useParams } from "react-router-dom"
 
-export default function UsersEdit(){
-
-    const {userId}=useParams()
-    const[user,setUser]=useState()
+export default function UsersEdit() {
+    const { userId } = useParams();
+    const [user, setUser] = useState();
+    const navigate = useNavigate();
 
     const structure = [
         { name: 'firstName', type: 'text', label: 'שם פרטי' },
@@ -15,8 +16,14 @@ export default function UsersEdit(){
         { name: 'password', type: 'password', label: 'סיסמה' },
     ];
 
-    useEffect(()=>{
-        if(userId==="new"){
+    async function getUser() {
+        const res = await fetch(`http://localhost:4000/users/${userId}`);
+        const data = await res.json();
+        setUser(data);
+    }
+
+    useEffect(() => {
+        if (userId === 'new') {
             setUser({
                 firstName: "",
                 lastName: "",
@@ -25,36 +32,53 @@ export default function UsersEdit(){
                 userName: "",
                 password: "",
             });
-        } else{
-
+        } else {
+            getUser();
         }
-    },[userId])
-
+    }, [userId]);
+    
     const handleInput = ev => {
         const { name, value } = ev.target;
 
         setUser({
             ...user,
             [name]: value,
-        })
+        });
     }
 
-    return(
+    const save = ev => {
+        ev.preventDefault();
+
+        fetch("http://localhost:4000/users" + (user.id ? `/${user.id}` : ""), {
+            method: user.id ? 'PUT' : 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+        .then(() => {
+            navigate('/users');
+        });
+    }
+
+    return (
         <>
-            <h3>{userId==="new"? "הוספת":"עריכת"} משתמש:{userId}</h3>
+            <button className='returnLink'>
+                <Link to={'/users'}><AiOutlineRight /> חזרה למשתמשים</Link>
+            </button>
             {
                 user &&
-                <form>
+                <form className="smallFrame" onSubmit={save}>
+                    <h2>{user.id ? 'עריכת' : 'הוספת'} משתמש</h2>
+
                     {
-                        structure.map(s=>
+                        structure.map(s =>
                             <label key={s.name}>
                                 {s.label}
-                                <input type={s.type} name={s.name} value={user[s.name]} onChange={handleInput}/>
-                            </label>    
+                                <input type={s.type} name={s.name} value={user[s.name]} onChange={handleInput} />
+                            </label>
                         )
                     }
 
-                    <button>{userId==="new"?"הוספה":"שמירה"}</button>
+                    <button>{user.id ? 'שמירה' : 'הוספה'}</button>
                 </form>
             }
         </>
