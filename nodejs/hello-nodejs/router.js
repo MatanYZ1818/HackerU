@@ -1,6 +1,7 @@
 const { getUsers, getUser, like, dislike, removeUser, addUser, updateUser } = require('./handlers/users');
 const { getClients, getClient } = require('./handlers/clients');
-const {getGrade,getGrades,addGrade,removeGrade}=require("./handlers/grades");
+const { getGrades, addGrade, removeGrade } = require('./handlers/grades');
+const { getAverageGrade, getAmountOfGrades, getDevOfGrades, getMaxGrade, getMinGrade, getUserAmount, getUsersAmountFromCurrentYear, getLastUsers } = require('./handlers/dashboard');
 
 module.exports = (app) => {
     app.get('/', (req, res) => res.send('ברוכים הבאים'));
@@ -17,7 +18,16 @@ module.exports = (app) => {
     app.get('/clients/:id', getClient);
 
     app.get('/grades', getGrades);
-    app.get('/grades/:id', getGrade);
-    app.post("/grades", addGrade);
-    app.delete("/grades/:id", removeGrade);
+    app.post('/grades', addGrade);
+    app.delete('/grades/:id', removeGrade);
+
+    app.get('/dashboard/grades/average', getAverageGrade);
+    app.get('/dashboard/grades/amount', getAmountOfGrades);
+    app.get('/dashboard/grades/dev', getDevOfGrades);
+    app.get('/dashboard/grades/max', getMaxGrade);
+    app.get('/dashboard/grades/min', getMinGrade);
+
+    app.get('/dashboard/users/amount', getUserAmount);
+    app.get('/dashboard/users/amount-year', getUsersAmountFromCurrentYear);
+    app.get('/dashboard/users/last/:amount', getLastUsers);
 }
