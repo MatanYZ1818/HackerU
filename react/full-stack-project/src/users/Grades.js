@@ -1,17 +1,14 @@
-import './Users.css';
-import { useEffect, useState } from 'react';
-import moment from 'moment';
-import { AiFillDislike, AiFillLike, AiFillEdit, AiOutlineRight, AiOutlineLeft, AiOutlineDoubleLeft, AiOutlineDoubleRight } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
 import { BsFillTrash3Fill } from 'react-icons/bs';
+import moment from 'moment';
+import { useEffect, useState } from 'react';
 
-export default function Users() {
+export default function Grades() {
     const [grades, setGrades] = useState([]);
-    const [formDate,setFormData]=useState({
-        grade:'',
-        title:"",
-        grade:""
-    })
+    const [formData, setFormData] = useState({
+        date: moment().format('YYYY-MM-DD'),
+        title: '',
+        grade: '',
+    });
 
     async function getGrades() {
         const res = await fetch("http://localhost:4000/grades");
@@ -23,13 +20,12 @@ export default function Users() {
         getGrades();
     }, []);
 
-
     const remove = id => {
         if (!window.confirm("האם למחוק את הציון?")) {
             return;
         }
 
-        fetch(`http://localhost:4000/grade/${id}`, {
+        fetch(`http://localhost:4000/grades/${id}`, {
             method: 'DELETE',
         })
         .then(() => {
@@ -37,23 +33,54 @@ export default function Users() {
         });
     }
 
+    const handleInput = ev => {
+        const { name, value } = ev.target;
+
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    }
     
+    const addGrade = () => {
+        fetch("http://localhost:4000/grades", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        })
+        .then(res => res.json())
+        .then(g => {
+            setGrades([...grades, g]);
+            setFormData({
+                date: moment().format('YYYY-MM-DD'),
+                title: '',
+                grade: '',
+            });
+        });
+    }
+
     return (
         <div>
             <h2>ציונים</h2>
-            
 
             <table>
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>תאריך</th>
-                        <th>מקצוע</th>
-                        <th>ציון</th>
-                        <th></th>
+                        <td>#</td>
+                        <td>תאריך</td>
+                        <td>נושא</td>
+                        <td>ציון</td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td></td>
+                        <td><input type="date" name="date" value={formData.date} onChange={handleInput} /></td>
+                        <td><input type="text" name="title" value={formData.title} onChange={handleInput} /></td>
+                        <td><input type="number" name="grade" value={formData.grade} onChange={handleInput} /></td>
+                        <td><button onClick={addGrade}>הוסף</button></td>
+                    </tr>
                 {
                     grades.map((g, i) => 
                         <tr key={g.id}>
@@ -61,7 +88,7 @@ export default function Users() {
                             <td>{moment(g.date).format("DD/MM/YY")}</td>
                             <td>{g.title}</td>
                             <td>{g.grade}</td>
-                            <td onMouseDown={ev => ev.preventDefault()}>
+                            <td>
                                 <button className='red' onClick={() => remove(g.id)}><BsFillTrash3Fill /></button>
                             </td>
                         </tr>

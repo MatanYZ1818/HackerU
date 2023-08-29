@@ -6,7 +6,7 @@ function getGrades(req, res) {
             throw err;
         }
 
-        res.send(result.pop());
+        res.send(result);
     });
 }
 
