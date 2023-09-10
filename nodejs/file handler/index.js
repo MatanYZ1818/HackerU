@@ -27,7 +27,7 @@ app.get('/test',(req,res)=>{
     })
 })
 app.get('/test2',(req,res)=>{
-    fs.appendFile("tests.txt",`${req.query.log} \n`,(err)=>{
+    fs.appendFile("test2.txt",`${req.query.log} \n`,(err)=>{
         if(err){
             throw err
         }
@@ -44,4 +44,7 @@ app.get('/test3',(req,res)=>{
 
         res.send("file created")
     })
+})
+app.get('/show-file',(req,res)=>{
+    fs.sendFile(`${__dirname}/test.txt`)
 })
