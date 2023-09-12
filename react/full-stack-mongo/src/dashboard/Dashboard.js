@@ -16,7 +16,7 @@ export default function Dashboard() {
     ];
 
     useEffect(() => {
-        const url = 'http://localhost:4000/dashboard';
+        const url = 'http://localhost:4444/dashboard';
 
         Promise.all([
             fetch(`${url}/grades/average`).then(res => res.json()),

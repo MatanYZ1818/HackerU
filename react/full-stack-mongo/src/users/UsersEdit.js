@@ -12,12 +12,10 @@ export default function UsersEdit() {
         { name: 'lastName', type: 'text', label: 'שם משפחה' },
         { name: 'phone', type: 'tel', label: 'טלפון' },
         { name: 'email', type: 'email', label: 'אימייל' },
-        { name: 'userName', type: 'text', label: 'שם משתמש' },
-        { name: 'password', type: 'password', label: 'סיסמה' },
     ];
 
     async function getUser() {
-        const res = await fetch(`http://localhost:4000/users/${userId}`);
+        const res = await fetch(`http://localhost:4444/users/${userId}`);
         const data = await res.json();
         setUser(data);
     }
@@ -29,8 +27,6 @@ export default function UsersEdit() {
                 lastName: "",
                 phone: "",
                 email: "",
-                userName: "",
-                password: "",
             });
         } else {
             getUser();
@@ -49,8 +45,8 @@ export default function UsersEdit() {
     const save = ev => {
         ev.preventDefault();
 
-        fetch("http://localhost:4000/users" + (user.id ? `/${user.id}` : ""), {
-            method: user.id ? 'PUT' : 'POST',
+        fetch("http://localhost:4444/users" + (user._id ? `/${user._id}` : ""), {
+            method: user._id ? 'PUT' : 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
         })
@@ -67,7 +63,7 @@ export default function UsersEdit() {
             {
                 user &&
                 <form className="smallFrame" onSubmit={save}>
-                    <h2>{user.id ? 'עריכת' : 'הוספת'} משתמש</h2>
+                    <h2>{user._id ? 'עריכת' : 'הוספת'} משתמש</h2>
 
                     {
                         structure.map(s =>
@@ -78,7 +74,7 @@ export default function UsersEdit() {
                         )
                     }
 
-                    <button>{user.id ? 'שמירה' : 'הוספה'}</button>
+                    <button>{user._id ? 'שמירה' : 'הוספה'}</button>
                 </form>
             }
         </>
