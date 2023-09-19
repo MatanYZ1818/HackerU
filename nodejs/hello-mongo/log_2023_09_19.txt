@@ -1,0 +1,68 @@
+Time: 19/09/2023 16:04:50
+Method: GET
+Route: /dashboard/grades/average
+
+Time: 19/09/2023 16:04:50
+Method: GET
+Route: /dashboard/grades/amount
+
+Time: 19/09/2023 16:04:50
+Method: GET
+Route: /dashboard/grades/dev
+
+Time: 19/09/2023 16:04:50
+Method: GET
+Route: /dashboard/grades/min
+
+Time: 19/09/2023 16:04:50
+Method: GET
+Route: /dashboard/grades/max
+
+Time: 19/09/2023 16:04:50
+Method: GET
+Route: /dashboard/users/amount-year
+
+Time: 19/09/2023 16:04:50
+Method: GET
+Route: /dashboard/users/amount
+
+Time: 19/09/2023 16:04:50
+Method: GET
+Route: /dashboard/users/last/10
+
+Time: 19/09/2023 16:24:32
+Method: GET
+Route: /users
+
+Time: 19/09/2023 16:24:35
+Method: GET
+Route: /dashboard/grades/average
+
+Time: 19/09/2023 16:24:35
+Method: GET
+Route: /dashboard/grades/amount
+
+Time: 19/09/2023 16:24:35
+Method: GET
+Route: /dashboard/grades/min
+
+Time: 19/09/2023 16:24:35
+Method: GET
+Route: /dashboard/grades/dev
+
+Time: 19/09/2023 16:24:35
+Method: GET
+Route: /dashboard/grades/max
+
+Time: 19/09/2023 16:24:35
+Method: GET
+Route: /dashboard/users/amount
+
+Time: 19/09/2023 16:24:35
+Method: GET
+Route: /dashboard/users/amount-year
+
+Time: 19/09/2023 16:24:35
+Method: GET
+Route: /dashboard/users/last/10
+
