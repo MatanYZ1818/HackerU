@@ -1,52 +1,49 @@
-module.exports=(app,mongoose)=>{
+const mongoose = require('mongoose');
 
+module.exports = (app) => {
     const schema = new mongoose.Schema({
-        Grade:Number,
-        title:String,
-        date:Date
+        date: Date,
+        title: String,
+        grade: Number,
     });
-
-    const grade = mongoose.model("grades", schema);
     
-    app.get('/', (req, res) => {
-        res.send("Welcome");
-    });
+    const Grade = mongoose.model("grades", schema);
     
     app.get('/grades', async (req, res) => {
-        res.send(await grade.find());
+        res.send(await Grade.find());
     });
     
-    app.get('/grades/:_id', async (req, res) => {
-        res.send(await grade.findOne({ _id: req.params._id }));
+    app.get('/grades/:id', async (req, res) => {
+        res.send(await Grade.findOne({ _id: req.params.id }));
     });
     
     app.post('/grades', async (req, res) => {
-        const { Grade, title, date } = req.body;
+        const { date, title, grade } = req.body;
     
-        const grade = new grade({ Grade, title, date });
-        const newUser = await grade.save();
+        const user = new Grade({ date, title, grade });
+        const newUser = await user.save();
         res.send(newUser);
     });
     
-    app.put('/grades/:_id', async (req, res) => {
-        const { Grade, title, date } = req.body;
-        const grade = await grade.findOne({ _id: req.params._id });
+    app.put('/grades/:id', async (req, res) => {
+        const { date, title, grade } = req.body;
+        const g = await Grade.findOne({ _id: req.params.id });
     
-        if (!grade) {
-            return res.status(403).send("משתמש לא קיים!");
+        if (!g) {
+            return res.status(403).send("הציון לא קיים!");
         }
     
-        grade.Grade  = Grade;
-        grade.title   = title;
-        grade.date      = date;
+        g.date   = date;
+        g.title  = title;
+        g.grade  = grade;
     
-        await grade.save();
+        await g.save();
     
-        res.send(grade);
+        res.send(g);
     });
     
-    app.delete('/grades/:_id', async (req, res) => {
-        await grade.deleteOne({_id:req.params._id})
-        res.send()
+    app.delete('/grades/:id', async (req, res) => {
+        await Grade.deleteOne({ _id: req.params.id });
+        res.send();
     });
 }
