@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const req = require('express/lib/request');
+const moment = require('moment');
+const fs = require('fs');
+const { getUser, addLog } = require('./config');
 
 async function main() {
     await mongoose.connect('mongodb://127.0.0.1:27017/hello-mongo');
@@ -18,8 +20,14 @@ app.use(cors({
     origin: true,
     credentials: true,
     methods: 'GET,PUT,POST,DELETE',
-    allowedHeaders: 'Content-Type, Accept',
+    allowedHeaders: 'Content-Type, Accept, Authorization',
 }));
+
+app.use((req, res, next) => {
+    /// בסוף:
+    addLog(req);
+    next();
+});
 
 app.listen(4444);
 
