@@ -4,6 +4,9 @@ const moment = require('moment');
 const fs = require('fs');
 
 const getUser = req => {
+    if(!req.headers.authorization){
+        return null
+    }
     const data = jwt.decode(req.headers.authorization, JWT_SECRET);
     return data.user;
 }
@@ -23,7 +26,7 @@ exports.addLog = (req, message = '') => {
 
     fileContent += '\n';
 
-    fs.appendFile(fileName, fileContent);
+    fs.appendFile(fileName, fileContent,()=>{});
 
     return message
 }

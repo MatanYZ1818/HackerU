@@ -35,6 +35,6 @@ app.get('/', (req, res) => {
     res.send("Welcome");
 });
 
-require('./handlers/users')(app);
-require('./handlers/grades')(app);
-require('./handlers/auth')(app);
+require('./handler/users')(app);
+require('./handler/grades')(app);
+require('./handler/auth')(app);
